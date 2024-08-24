@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Brainy Blogs</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&family=Quicksand:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link rel = "icon" href = "https://cdn-icons-png.flaticon.com/512/2593/2593542.png" >
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        {% include 'navbar.html' %}
+
+        <div class="flex py-16 bg-[#E96479] text-white items-center justify-center">
+            <div class="px-4 py-10 w-96 flex justify-center items-center">
+                <img class="rounded-full mt-5" src="{{profile.profile}}" />
+            </div>
+            <div>
+                <div class="px-12 py-4 text-2xl font-bold font-[Quicksand]">{{profile.user}}</div>
+                <div class="px-12 font-[Montserrat]">{{profile.description}}</div>
+            </div>
+        </div>
+        <div class="bg-[#F5E9CF] p-4">
+            <div class="text-slate-500 text-bold text-5xl ml-4 my-4">{{profile.user}}'s Blogs</div>
+            {% if blogs %} {% include 'blogs.html' %} {% else %} No Blogs from {{profile.user}} {% endif %}
+        </div>
+        {% include 'footer.html' %}
+    </body>
+</html>
